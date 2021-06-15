@@ -1,1 +1,1 @@
-# Gachon Univ. SW enier PROJECT
+# Gachon Univ. SW Senier PROJECT
