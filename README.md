@@ -107,7 +107,7 @@ The review analyzer brings restaurant information and reviews stored in the data
 
 * [Finding Similar reviews]
 
-<img src="/git_img/similar_review.PNG">
+<img src="/git_img/similar_review.PNG" width="70%" height="70^">
 
 The process of obtaining similar reviews is as follows.
 
@@ -151,7 +151,7 @@ Train the KoELECTRA model with the collected data.
 
 * [Review visualization]
 
-<img src="/git_img/bar_graph.png" width="40%" height="40%"> 
+<img src="/git_img/graph.png" width="40%" height="40%"> 
 <img src="/git_img/wordcloud.png" width="40%" height="40%">
 
 Using the Matplotlib library provided by Python.
