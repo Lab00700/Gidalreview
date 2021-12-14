@@ -107,7 +107,7 @@ The review analyzer brings restaurant information and reviews stored in the data
 
 * [Finding Similar reviews]
 
-<img src="/git_img/similar_review.PNG" width="70%" height="70^">
+<img src="/git_img/similar_review.PNG" width="70%" height="70%">
 
 The process of obtaining similar reviews is as follows.
 
