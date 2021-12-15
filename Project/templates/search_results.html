@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+  <title>searchResult</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+
+  <style>
+*{
+	font-family: 'Nanum Gothic Coding', monospace;
+}
+
+.wrapper {
+    max-width: 1300px;
+	border: solid 3px #5E67CF;
+	border-radius: 30px 30px 30px 30px;
+}
+
+#btn{
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+#rest {
+	border: #5E67CF;
+}
+
+.fixedTable {
+}
+
+th, td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20x;
+  padding-right: 20px;
+  line-height: 25px;
+}
+
+img { display: block; margin: 0px auto; }
+input[type="checkbox"] {
+        display: none;
+    }
+
+     label {
+        display: inline-block;
+        border-radius: 20px;
+        text-align: center;
+        text-decoration: none;
+        border: solid 1px #ccc;
+        transition: 0.25s;
+        padding: 6px 18px;
+        cursor: pointer;
+        font-size: 12px;
+        margin: 3px;
+    }
+    input[type="checkbox"]:checked + label {
+        background: #5E67CF;
+        color: #fff;
+    }
+    .selectBox {
+  position: relative;
+  width: 130px;
+  height: 35px;
+  border-radius: 4px;
+  border: 2px solid #5E67CF;
+}
+.selectBox .select {
+  width: inherit;
+  height: inherit;
+  background: transparent;
+  border: 0 none;
+  outline: 0 none;
+  padding: 0 5px;
+  position: relative;
+  z-index: 3; // select가 위로 올라와야 함
+}
+.selectBox .select option {
+  background: #5E67CF;
+  color: #fff;
+  padding: 3px 0;
+  font-size: 13px;
+}
+#submit{
+  position: relative;
+  width: 50px;
+  height: 30px;
+  border-radius: 4px;
+  border: 2px solid #5E67CF;
+  background-color : #5E67CF;
+  color: #fff;
+  font-size: 16px;
+}
+
+</style>
+
+</head>
+
+<body>
+<br>
+<!-- <div style="float:left;"><a href="{% url 'home' %}"><button type="submit" class="btm_image" id="btn"><img src="{% static '/image/back.png' %}" style="width: 60px; height: 60px; cursor: pointer; float:center;"></button></a></div> -->
+<div style="float:center;"><img src="{% static '/image/result.png' %}" style="width: 600px; height:150px;"></div><div style="clear:both"></div>
+<div id="div1" align="center">
+  <div id="rest">
+    <br><br><br><br><br>
+    <h1 style="display:inline;"><b>{{ Rest_Info.rest_name }}</b></h1><h2 style="display:inline;"></h2>
+    <br><br><br>
+    <table>
+      <tr>
+        <td><h3 style="display:inline;">별점 {{ Rest_Info.star_point }} <h2 style="color: #FFCC00; display:inline;";>{{ Rest_Info.star }}&nbsp;&nbsp;</h2></h3></td>
+        <td><h3 style="display:inline;">예측 별점 {{ Rest_Info.expected_star_point }} <h2 style="color: #FFCC00; display:inline;">{{ Rest_Info.expected_star }}</h2></h3></td>
+      </tr>
+    </table>
+    <br><br><br><br><br><br>
+
+    <!--   <img src= "{{ Rest_Info.pic }}" style="width: 30%; height: 30%">  -->
+  </div>
+
+
+
+  <div class="wrapper">
+    <!-- 별점 분포, 별점별 대표 리뷰 --> <br><br>
+    <table>
+      <tr>
+        <td><img src="{% static '/image/distribution.png' %}" style="width: 250px; height: 100px;"></td>
+        <td><img src="{% static '/image/representing.png' %}" style="width: 400px; height: 100px;"></td>
+      </tr>
+      <tr>
+        <td><img src="{% static '/image/pie.png' %}" style="width: 400px; height: 400px; margin-left: 20px;"></td>
+        <td>
+          <table class="fixedTable" style="text-align:center; margin:0px 30px 0px 10px;">
+            <colgroup>
+              <col style="width:15%">
+              <col style="width:28.3%">
+              <col style="width:28.3%">
+              <col style="width:28.3%">
+            </colgroup>
+
+            <tr>
+              <th><h2>별점</h2></th>
+              <th><h2>리뷰</h2></th>
+              <th colspan='2'><h2>유사 리뷰</h2></th>
+            </tr>
+            <tr>
+            {% for star,comment,s1,s2 in similar_list %}
+            <tr>
+              <!--            <td> {{ star }} </td>-->
+              <td>
+            <div style="min-height:50px">
+              {% if star == "1" %}
+              <h3 style="color: #FFCC00;">★</h3>
+              {% elif star == "2" %}
+              <h3 style="color: #FFCC00;">★★</h3>
+              {% elif star == "3" %}
+              <h3 style="color: #FFCC00;">★★★</h3>
+              {% elif star == "4" %}
+              <h3 style="color: #FFCC00;">★★★★</h3>
+              {% elif star == "5" %}
+              <h3 style="color: #FFCC00;">★★★★★</h3>
+              {% endif %}
+            </div></td>
+            <td>
+          <div style="min-height:50px">
+            <h5> {{ comment }} </h5><br></div></td>
+            <td>
+          <div style="min-height:50px">
+            <h5> {{ s1 }} </h5><br></div></td>
+            <td>
+          <div style="min-height:50px">
+            <h5> {{ s2 }} </h5><br></div></td>
+            </tr>
+            {% endfor %}
+            <!-- 여기까지 -->
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <br><br>
+  </div>
+
+  <br><br><br>
+
+
+
+  <div class="wrapper">
+    <!-- 키워드분석 --> <br><br>
+    <table>
+      <tr>
+        <td colspan='2'><img src="{% static '/image/keyword.png' %}" style="width: 300px; height: 100px;"></td>
+      </tr>
+      <tr>
+        <td><img src="{% static '/image/graph.png' %}" style="width: 550px; height: 330px"></td>
+        <td><img src="{% static '/image/wordcloud.png' %}" style="width: 700px; height: 500px"></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="wrapper">
+    <!-- AI 리뷰 분석 --> <br><br>
+    <img src="{% static '/image/analyze.png' %}" style="width: 300px; height: 100px;">
+    <form method="GET" action="{% url 'search_results' %}">{% csrf_token %}
+      <div class="selectBox">
+        <select name="sort" id="sort" class="select">
+          <option value="recently" id="recently">최신순</option>
+          <option value="predict_high" id="predict_high">높은순</option>
+          <option value="predict_low" id="predict_low">낮은순</option>
+        </select>
+      </div>
+      <br>
+      <input type="checkbox" name="f" value="리뷰 이벤트 참여 가능성 높음" id="id_tags_0">
+      <label for="id_tags_0">리뷰 이벤트 참여 가능성 높음</label>
+      <input type="checkbox" name="f" value="리뷰 이벤트 참여 가능성 낮음" id="id_tags_1">
+      <label for="id_tags_1">리뷰 이벤트 참여 가능성 낮음</label>
+
+      <p><input id = "submit" type="submit" value="적용"></p>
+    </form>
+    <table class="fixedTable" style="text-align:center; margin:0px 50px 0px 50px;">
+      <colgroup>
+        <col style="width:20%">
+        <col style="width:50%">
+        <col style="width:30%">
+      </colgroup>
+      <tr>
+        <th><h2>예측 별점</h2></th>
+        <th><h2>리뷰</h2></th>
+        <th><h2>리뷰 이벤트 참여 가능성</h2></th>
+      </tr>
+      <tr>
+        {% for expect, review, label in event_list %}
+      <tr>
+        <td>
+          <div style="min-height:50px">
+            {% if expect == 1 %}
+            <h3 style="color: #FFCC00;">★</h3>
+            {% elif expect == 2 %}
+            <h3 style="color: #FFCC00;">★★</h3>
+            {% elif expect == 3 %}
+            <h3 style="color: #FFCC00;">★★★</h3>
+            {% elif expect == 4 %}
+            <h3 style="color: #FFCC00;">★★★★</h3>
+            {% elif expect == 5 %}
+            <h3 style="color: #FFCC00;">★★★★★</h3>
+            {% endif %}
+          </div></td>
+        <td>
+          <div style="min-height:50px">
+            <h4> {{ review }} </h4><br></div></td>
+        {% if label == "리뷰 이벤트 참여 가능성 높음" %}
+        <td>
+          <div style="min-height:50px">
+            <img src="{% static '/image/label1.png' %}" style="width: 200px; height: 30px"></div></td>
+        {% elif label == "리뷰 이벤트 참여 가능성 낮음" %}
+        <td>
+          <div style="min-height:50px">
+            <img src="{% static '/image/label0.png' %}" style="width: 200px; height: 30px"></div></td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+      </tr>
+      <!-- 여기까지 -->
+
+    </table>
+
+    <br><br>
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br>
+
+<body>
