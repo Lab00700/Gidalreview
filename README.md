@@ -18,8 +18,9 @@
 ***
 
 ## Team meeting schedule 
-* During the semester 1: Every Wednesday at 7pm, every Sunday at 9pm
-* During the semester 2: Every Monday at 6pm, every Friday at 5pm
+* During the semester 1 of 2021 : Every Wednesday at 7pm, every Sunday at 9pm
+* During the semester 2 of 2021: Every Monday at 6pm, every Friday at 5pm
+* During the semester 1 of 2022: Every Wednesday at 4pm
 
 
 ***
