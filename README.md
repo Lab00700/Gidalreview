@@ -58,10 +58,10 @@ Selenium, BeautifulSoup, PyKoSpacing, KoNLPy, Tesseract-OCR, KorBERT, etc
 ### 💡 Week 11-12
 Crawling small data for the Yogiyo website. Use Beautiful Soup 4.
 
-Crawling Target Data <br>
-[About the store] <br>
+### **Crawling Target Data** <br>
+#### **[About the store]** <br>
 Name, total star rating (whether recommended, taste, quantity, delivery), review event notice (CEO notification) <br>
-[Review] <br>
+#### **[Review]** <br>
 Star ratings for each review (recommended, taste, quantity, delivery), review content, review creation date, order menu <br>
 
 <br>
