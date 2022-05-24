@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+<title>searchResult</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+
+<style>
+*{
+	font-family: 'Nanum Gothic Coding', monospace;
+}
+
+#wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#btn{
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+img { display: block; margin: 0px auto; }
+</style>
+
+</head>
+
+<body>
+<div class="wrapper">
+  <!-- templates/search_results.html -->
+  <!-- <h1>Search Results</h1>-->
+  <br>
+  <a href="{% url 'home' %}"><button type="submit" class="btm_image" id="btn" align="left"><img src="{% static '/image/back.png' %}" style="width: 60px; height: 60px; cursor: pointer"></button></a>
+  <img src="{% static '/image/result.png' %}" style="width: 550px; height: 150px;"> <br><br><br>
+
+  <div id="div1" align="center">
+
+    <h1 style="display:inline;"><b>{{ Rest_Info.rest_name }}</b></h1><h2 style="display:inline;"></h2>
+    <br><br><br>
+    <table>
+    <tr>
+      <td><h3 style="display:inline;">평점 {{ Rest_Info.star_point }} <h2 style="color: #FFCC00; display:inline";>{{ Rest_Info.star }}&nbsp;&nbsp;&nbsp;</h2></h3></td>
+      <td><h3 style="display:inline;">예측 평점 {{ Rest_Info.expected_star_point }} <h2 style="color: #FFCC00; display:inline";">{{ Rest_Info.expected_star }}</h2></h3></td>
+    </tr>
+    </table>
+    <br><br>
+    <!--   <img src= "{{ Rest_Info.pic }}" style="width: 30%; height: 30%">  -->
+    <br>
+
+
+
+
+    <table>
+    <tr>
+      <td><img src="{% static '/image/graph.png' %}" style="width: 600px; height: 350px"></td>
+      <td><img src="{% static '/image/wordcloud.png' %}" style="width: 800px; height: 500px"></td>
+    </tr>
+    </table>
+
+
+    <br><br><br>
+
+    <table style="text-align:center; margin:0px 100px 0px 100px;">
+    <tr>
+      <th colspan='2'><h3>리뷰</h3></th>
+      <th colspan='4'><h3>리뷰 이벤트 참여 가능성</h3></th>
+      <th colspan='3'><h3>유사 리뷰</h3></th>
+      <tr>
+        <td colspan='2'>
+          {% for review in review_list%}
+          <h5>{{ review }}</h5>
+          {% endfor %}
+        </td>
+        <td colspan='1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td colspan='2'>
+          {% for label in label_list%}
+          {% if label == "리뷰 이벤트 참여 가능성 높음" %}
+          <br><img src="{% static '/image/label1.png' %}" style="width: 200px; height: 30px"><br>
+
+          {% elif label == "리뷰 이벤트 참여 가능성 낮음" %}
+          <br><img src="{% static '/image/label0.png' %}" style="width: 200px; height: 30px"><br>
+
+          {% endif %}
+          {% endfor %}
+        </td>
+        <td colspan='1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td colspan='1'>
+          {% for similar1 in similar_list_1%}
+          <h5>{{ similar1 }}</h5>
+          {% endfor %}
+        </td>
+        <td colspan='1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td colspan='1'>
+          {% for similar2 in similar_list_2%}
+          <h5>{{ similar2 }}</h5>
+          {% endfor %}
+        </td>
+      </tr>
+      </table>
+
+
+      <!--  {% for r in review_model %}-->
+      <!--    <h1>{{r}}</h1><br>-->
+
+      <!--    {% endfor %}-->
+
+      <!--  {% for l in label %}-->
+      <!--    <h1>{{l }}</h1><br>-->
+      <!--&lt;!&ndash;    <h1>{{review.review}}</h1><br>&ndash;&gt;-->
+      <!--&lt;!&ndash;    <h1>코딩에 투자한 날은 365일 중 {{review.date}}%이네요.</h1><br><br>&ndash;&gt;-->
+      <!--    {% endfor %}-->
+
+    </div>
+  </div>
+  <body>

@@ -1,11 +1,11 @@
 {% load static %}
 <!DOCTYPE html>
 <head>
-  <title>searchResult</title>
+<title>searchResult</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 
   <style>
 *{
@@ -39,6 +39,13 @@ th, td {
   line-height: 25px;
 }
 
+header{
+  position:-webkit-sticky;
+  position:fixed;
+  top:0;
+  background-color:yellow
+}
+
 img { display: block; margin: 0px auto; }
 input[type="checkbox"] {
         display: none;
@@ -60,39 +67,119 @@ input[type="checkbox"] {
         background: #5E67CF;
         color: #fff;
     }
-    .selectBox {
-  position: relative;
-  width: 130px;
-  height: 35px;
-  border-radius: 4px;
-  border: 2px solid #5E67CF;
-}
-.selectBox .select {
-  width: inherit;
-  height: inherit;
-  background: transparent;
-  border: 0 none;
-  outline: 0 none;
-  padding: 0 5px;
-  position: relative;
-  z-index: 3; // select가 위로 올라와야 함
-}
-.selectBox .select option {
-  background: #5E67CF;
-  color: #fff;
-  padding: 3px 0;
-  font-size: 13px;
-}
-#submit{
-  position: relative;
-  width: 50px;
-  height: 30px;
-  border-radius: 4px;
-  border: 2px solid #5E67CF;
-  background-color : #5E67CF;
-  color: #fff;
-  font-size: 16px;
-}
+
+	.selectBox {
+	  position: relative;
+	  width: 130px;
+	  height: 35px;
+	  border-radius: 4px;
+	  border: 2px solid #5E67CF;
+	}
+	.selectBox .select {
+	  width: inherit;
+	  height: inherit;
+	  background: transparent;
+	  border: 0 none;
+	  outline: 0 none;
+	  padding: 0 5px;
+	  position: relative;
+	  z-index: 3; // select가 위로 올라와야 함
+	}
+	.selectBox .select option {
+	  background: #5E67CF;
+	  color: #fff;
+	  padding: 3px 0;
+	  font-size: 13px;
+	}
+	#submit{
+	  position: relative;
+	  width: 50px;
+	  height: 30px;
+	  border-radius: 4px;
+	  border: 2px solid #5E67CF;
+	  background-color : #5E67CF;
+	  color: #fff;
+	  font-size: 16px;
+	}
+
+	#block{
+		padding: 50px 50px 50px 50px;
+
+	}
+
+	#block2{
+		padding: 25px 25px 25px 25px;
+
+	}
+
+	nav{
+    	position: relative;
+    }
+    nav ul{
+    	padding: 0;
+    	margin: 0 auto;
+    	width: auto;
+    }
+    nav li{
+    }
+    nav a{
+    	line-height: 50px;
+      height: 50px;
+    }
+    nav li a{
+    	box-sizing: border-box;
+    	-moz-box-sizing: border-box;
+    	-webkit-box-sizing: border-box;
+    }
+    nav li:last-child a{
+    	border-right: 0;
+        }
+    nav a:hover, nav a:active{
+    }
+    nav a#pull{
+    	display: none;
+    }
+      html {
+      -webkit-touch-callout:none;
+      -webkit-user-select:none;
+      -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+      }
+
+      ul{
+        /*list-style-type: none;*/
+        margin: 0;
+        padding: 0;
+        background-color: #FFFFFF;
+        text-align: center;
+		font-size: 20px;
+		font-weight: bold;
+      }
+      li{
+        /*position: relative;*/
+        display: inline-block;
+      }
+      li a{
+        color: #5E67CF;
+        text-align: center;
+        padding: 10px 50px 10px 50px;
+        text-decoration: none;
+      }
+      li a:hover{
+        /*color: #597812;*/
+		background-color: #5E67CF;
+        color: #FFFFFF;
+        font-weight:normal;
+      }
+      .menu {
+       position: fixed;
+	   top: 0px;
+       width: 5000px;
+       height: 50px;
+       text-align: center;
+       max-width: 100%;
+       background-position: center;
+       background-size: cover;
+     }
 
 </style>
 
@@ -100,83 +187,107 @@ input[type="checkbox"] {
 
 <body>
 <br>
-<!-- <div style="float:left;"><a href="{% url 'home' %}"><button type="submit" class="btm_image" id="btn"><img src="{% static '/image/back.png' %}" style="width: 60px; height: 60px; cursor: pointer; float:center;"></button></a></div> -->
+<a name="sec1">
+<div id="block2"></div>
 <div style="float:center;"><img src="{% static '/image/result.png' %}" style="width: 600px; height:150px;"></div><div style="clear:both"></div>
-<div id="div1" align="center">
+<div id="block2"></div>
+
+<div id="header" align="center">
+
+<div class="menu" >
+  <nav class="clearfix">
+  <ul class="clearfix">
+    <li><a href="#sec1">가게정보</a></li>
+    <li><a href="#sec2">별점 분포 & 별점별 대표 리뷰</a></li>
+    <li><a href="#sec3">키워드 분석</a></li>
+    <li><a href="#sec4">AI 리뷰 분석</a></li>
+  </ul>
+  <a id="pull" href="#"></a>
+  </nav>
+</div>
+
   <div id="rest">
-    <br><br><br><br><br>
     <h1 style="display:inline;"><b>{{ Rest_Info.rest_name }}</b></h1><h2 style="display:inline;"></h2>
     <br><br><br>
     <table>
-      <tr>
-        <td><h3 style="display:inline;">별점 {{ Rest_Info.star_point }} <h2 style="color: #FFCC00; display:inline;";>{{ Rest_Info.star }}&nbsp;&nbsp;</h2></h3></td>
-        <td><h3 style="display:inline;">예측 별점 {{ Rest_Info.expected_star_point }} <h2 style="color: #FFCC00; display:inline;">{{ Rest_Info.expected_star }}</h2></h3></td>
-      </tr>
+    <tr>
+      <td><h3 style="display:inline;">별점 {{ Rest_Info.star_point }} <h2 style="color: #FFCC00; display:inline;";>{{ Rest_Info.star }}&nbsp;&nbsp;</h2></h3></td>
+      <td><h3 style="display:inline;">예측 별점 {{ Rest_Info.expected_star_point }} <h2 style="color: #FFCC00; display:inline;">{{ Rest_Info.expected_star }}</h2></h3></td>
+    </tr>
     </table>
-    <br><br><br><br><br><br>
 
     <!--   <img src= "{{ Rest_Info.pic }}" style="width: 30%; height: 30%">  -->
   </div>
 
+  <div id="block">
+	<a name="sec2">
+  </div>
 
 
   <div class="wrapper">
     <!-- 별점 분포, 별점별 대표 리뷰 --> <br><br>
     <table>
-      <tr>
-        <td><img src="{% static '/image/distribution.png' %}" style="width: 250px; height: 100px;"></td>
-        <td><img src="{% static '/image/representing.png' %}" style="width: 400px; height: 100px;"></td>
-      </tr>
-      <tr>
-        <td><img src="{% static '/image/pie.png' %}" style="width: 400px; height: 400px; margin-left: 20px;"></td>
-        <td>
-          <table class="fixedTable" style="text-align:center; margin:0px 30px 0px 10px;">
-            <colgroup>
-              <col style="width:15%">
-              <col style="width:28.3%">
-              <col style="width:28.3%">
-              <col style="width:28.3%">
-            </colgroup>
+    <tr>
+      <td><img src="{% static '/image/distribution.png' %}" style="width: 250px; height: 100px;"></td>
+      <td><img src="{% static '/image/representing.png' %}" style="width: 400px; height: 100px;"></td>
+    </tr>
+    <tr>
+      <td><img src="{% static '/image/pie.png' %}" style="width: 400px; height: 400px; margin-left: 20px;"></td>
+      <td>
+        <table class="fixedTable" style="text-align:center; margin:0px 30px 0px 10px;">
+        <colgroup>
+        <col style="width:15%">
+        <col style="width:28.3%">
+        <col style="width:28.3%">
+        <col style="width:28.3%">
+        </colgroup>
 
-            <tr>
-              <th><h2>별점</h2></th>
-              <th><h2>리뷰</h2></th>
-              <th colspan='2'><h2>유사 리뷰</h2></th>
-            </tr>
-            <tr>
-            {% for star,comment,s1,s2 in similar_list %}
-            <tr>
-              <!--            <td> {{ star }} </td>-->
-              <td>
-            <div style="min-height:50px">
-              {% if star == "1" %}
-              <h3 style="color: #FFCC00;">★</h3>
-              {% elif star == "2" %}
-              <h3 style="color: #FFCC00;">★★</h3>
-              {% elif star == "3" %}
-              <h3 style="color: #FFCC00;">★★★</h3>
-              {% elif star == "4" %}
-              <h3 style="color: #FFCC00;">★★★★</h3>
-              {% elif star == "5" %}
-              <h3 style="color: #FFCC00;">★★★★★</h3>
-              {% endif %}
-            </div></td>
+        <tr>
+          <th><h2>별점</h2></th>
+          <th><h2>리뷰</h2></th>
+          <th colspan='2'><h2>유사 리뷰</h2></th>
+        </tr>
+        <tr>
+          {% for star,comment,s1,s2 in similar_list %}
+          <tr>
+            <!--            <td> {{ star }} </td>-->
             <td>
-          <div style="min-height:50px">
-            <h5> {{ comment }} </h5><br></div></td>
+              <div style="min-height:50px">
+                {% if star == "1" %}
+                <h3 style="color: #FFCC00;">★</h3>
+                {% elif star == "2" %}
+                <h3 style="color: #FFCC00;">★★</h3>
+                {% elif star == "3" %}
+                <h3 style="color: #FFCC00;">★★★</h3>
+                {% elif star == "4" %}
+                <h3 style="color: #FFCC00;">★★★★</h3>
+                {% elif star == "5" %}
+                <h3 style="color: #FFCC00;">★★★★★</h3>
+                {% endif %}
+              </div>
+            </td>
             <td>
-          <div style="min-height:50px">
-            <h5> {{ s1 }} </h5><br></div></td>
+              <div style="min-height:50px">
+                <h5> {{ comment }} </h5><br>
+              </div>
+            </td>
             <td>
-          <div style="min-height:50px">
-            <h5> {{ s2 }} </h5><br></div></td>
-            </tr>
-            {% endfor %}
-            <!-- 여기까지 -->
-            </tr>
-          </table>
-        </td>
-      </tr>
+              <div style="min-height:50px">
+                <h5> {{ s1 }} </h5><br>
+              </div>
+            </td>
+            <td>
+              <div style="min-height:50px">
+                <h5> {{ s2 }} </h5><br>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+          <!-- 여기까지 -->
+        </tr>
+        </table>
+      </td>
+    </tr>
     </table>
     <br><br>
   </div>
@@ -184,40 +295,61 @@ input[type="checkbox"] {
   <br><br><br>
 
 
+  <div id="block">
+	<a name="sec3">
+  </div>
+
+
 
   <div class="wrapper">
     <!-- 키워드분석 --> <br><br>
     <table>
-      <tr>
-        <td colspan='2'><img src="{% static '/image/keyword.png' %}" style="width: 300px; height: 100px;"></td>
-      </tr>
-      <tr>
-        <td><img src="{% static '/image/graph.png' %}" style="width: 550px; height: 330px"></td>
-        <td><img src="{% static '/image/wordcloud.png' %}" style="width: 700px; height: 500px"></td>
-      </tr>
+    <tr>
+      <td colspan='2'><img src="{% static '/image/keyword.png' %}" style="width: 300px; height: 100px;"></td>
+    </tr>
+    <tr>
+      <td><img src="{% static '/image/graph.png' %}" style="width: 550px; height: 330px"></td>
+      <td><img src="{% static '/image/wordcloud.png' %}" style="width: 700px; height: 500px"></td>
+    </tr>
     </table>
   </div>
 
 
-  <div class="wrapper">
+  <div id="block">
+	<a name="sec4">
+  </div>
+
+
+ <div class="wrapper">
     <!-- AI 리뷰 분석 --> <br><br>
     <img src="{% static '/image/analyze.png' %}" style="width: 300px; height: 100px;">
-    <form method="GET" action="{% url 'search_results' %}">{% csrf_token %}
-      <div class="selectBox">
-        <select name="sort" id="sort" class="select">
-          <option value="recently" id="recently">최신순</option>
-          <option value="predict_high" id="predict_high">높은순</option>
-          <option value="predict_low" id="predict_low">낮은순</option>
-        </select>
+    <!-- 수정 -->
+    <table class="option" style="text-align:center; font-family: 'Nanum Gothic Coding', monospace;">
+      <div class = "btnOption">
+        <form method="GET" action="{% url 'search_results' %}">{% csrf_token %}
+          <tr>
+            <td>
+              <div class="selectBox">
+                <select name="sort" id="sort" class="select">
+                  <option value="recently" id="recently">최신순</option>
+                  <option value="predict_high" id="predict_high">높은순</option>
+                  <option value="predict_low" id="predict_low">낮은순</option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <input type="checkbox" name="f" value="리뷰 이벤트 참여 가능성 높음" id="id_tags_0">
+              <label for="id_tags_0">리뷰 이벤트 참여 가능성 높음</label>
+              <input type="checkbox" name="f" value="리뷰 이벤트 참여 가능성 낮음" id="id_tags_1">
+              <label for="id_tags_1">리뷰 이벤트 참여 가능성 낮음</label>
+            </td>
+            <td><input id = "submit" type="submit" value="적용"></td>
+          </form>
+        </tr>
       </div>
-      <br>
-      <input type="checkbox" name="f" value="리뷰 이벤트 참여 가능성 높음" id="id_tags_0">
-      <label for="id_tags_0">리뷰 이벤트 참여 가능성 높음</label>
-      <input type="checkbox" name="f" value="리뷰 이벤트 참여 가능성 낮음" id="id_tags_1">
-      <label for="id_tags_1">리뷰 이벤트 참여 가능성 낮음</label>
-
-      <p><input id = "submit" type="submit" value="적용"></p>
-    </form>
+    </table>
+    <br>
+    <!-- 수정 -->
     <table class="fixedTable" style="text-align:center; margin:0px 50px 0px 50px;">
       <colgroup>
         <col style="width:20%">
@@ -264,6 +396,7 @@ input[type="checkbox"] {
       <!-- 여기까지 -->
 
     </table>
+
 
     <br><br>
   </div>

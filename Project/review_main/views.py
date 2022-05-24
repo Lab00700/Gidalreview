@@ -29,6 +29,7 @@ import nltk
 from review_main import predict
 
 
+
 # Create your views here.
 def home(request):
     if request.method == 'GET':
@@ -80,7 +81,6 @@ def url_search(request):
         similar_list = zip(list(sorting.star), list(sorting.comment), list(sorting.similarComment1),
                            list(sorting.similarComment2))
         event_list = zip(total_filter['predict'].tolist(), total_filter['review'].tolist(), total_filter['label'].tolist())
-
         # context = {'review_list': review_model.review, 'star_list': review_model.star, 'pred_review_list':review_model.pred_review, 'expectedPoint_list':review_model.expectedPoint, 'label_list':review_model.label,
         # context = {'review_list': review_model.review, 'star_list': review_model.star, 'label_list':review_model.label, 'expectedPoint_list':review_model.expectedPoint,
         #             'Rest_Info':Rest_Info_model,
