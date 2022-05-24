@@ -48,14 +48,14 @@ Selenium, BeautifulSoup, PyKoSpacing, KoNLPy, Tesseract-OCR, KorBERT, etc
 
 <br>
 
-### 💡 Week 5-6
+### 💡 Week 5-7
 **Inspect numerous reviews and select review criteria**
 - Yogiyo has 4 star rating criteria: taste, quantity, delivery, and recommended
 - Thinking about points to become a special study, not just a review analysis
 
 <br>
 
-### 💡 Week 11-12
+### 💡 Week 9-11
 Crawling small data for the Yogiyo website. Use Beautiful Soup 4.
 
 ### **Crawling Target Data** <br>
@@ -66,7 +66,7 @@ Star ratings for each review (recommended, taste, quantity, delivery), review co
 
 <br>
 
-### 💡 Week 13
+### 💡 Week 12
 **Spacing preprocessing**
 - Use PyKoSpacing to preprocess spaces
 - Converting non-spaced Korean sentences into spacing sentences
@@ -81,7 +81,7 @@ Star ratings for each review (recommended, taste, quantity, delivery), review co
 
 <br>
 
-### 💡 Week 14
+### 💡 Week 13-15
 **🔸Implement for event participation review classification** <br>
 1. Classify as text <br>
 Categorize sentences by morpheme using KoNLPy <br>
