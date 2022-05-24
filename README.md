@@ -103,7 +103,7 @@ Review Reconfiguration Verification Procedure <br>
 
 <br>
 
-### 💡 여름방학
+### 💡 Summer vacation
 We investigated the database construction and implemented a crawling automation system.
 
 <br>
@@ -176,7 +176,13 @@ After implementing a web page through HTML and css languages, connect it to the 
 <br>
 
 ## 📝 2022 Semester 1
-We will do documentation work to distribute to users, make marketing plans, and continue to supplement the system through feedback after actual distribution.
+##### We did documentation work to distribute to users, make marketing plans, and continue to supplement the system through feedback after actual distribution.
+
+##### [Maintenance]
+🔸Reviews are constantly updated, so we implemented adding words to dictionaries on a regular basis and automating learning.
+🔸Add Top menu bar and Paging function.
+- Top menu bar that does not move even when scrolling and is always fixed at the top of the screen.
+- Paging function to the AI Review section so that we could see 5 reviews on each page.
 
 
 
