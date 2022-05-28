@@ -5,9 +5,9 @@
 <img src="/git_img/main.PNG">
 
 ## **'기달리뷰' implies that we will analyze improve the review, so wait!**
-### Demo Video here 💁‍♀️ 
-### Wiki Page here 💁‍♂️ https://github.com/Lab00700/Gidalreview/wiki
-### 기달리뷰 Page here 💁 
+### 💁
+### Demo Video 💁‍♀️ https://github.com/Lab00700/Gidalreview/wiki
+### Wiki Page 💁‍♂️ https://github.com/Lab00700/Gidalreview/wiki
 ***
 
 ## 🔍 Member information 
