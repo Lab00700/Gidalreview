@@ -4,7 +4,10 @@
 
 <img src="/git_img/main.PNG">
 
-**'기달리뷰' implies that we will improve the review, so wait!**
+## **'기달리뷰' implies that we will improve the review, so wait!**
+### Watch the Demo Video here 💁‍♀️ 
+### View the Document here 💁‍♂️ 
+### Click here to use 기달리뷰💁 
 ***
 
 ## 🔍 Member information 
