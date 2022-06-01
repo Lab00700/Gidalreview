@@ -107,8 +107,8 @@ def url_search(request):
             print(review_model.label)
 
             # 예측 평점 모델 적용
-            pred = predict.predict(review_model.review)
-
+            pred = predict.predict(review_model.review,review_model.star)
+            pred = pd.DataFrame(pred,columns=["predict"])
             rest_info = rest_info_crowling(url_src, pred['predict'])
             print(rest_info)
             print(review_model.review)
@@ -168,7 +168,7 @@ def url_search(request):
             context = {'Rest_Info': Rest_Info_model, 'similar_list': similar_list, 'event_list': event_list,
                        'filter': f}
             # ################################################################# 수정
-
+            pred = predict.predict(review_model.review, review_model.star,Rest_Info_model.rest_name)
             return render(request, 'search_results.html', context)
         elif 'yogiyo' not in url_src:
             return render(request, 'home.html',
@@ -560,10 +560,11 @@ def findSimilarReview(data):
         # print(f'현재 리뷰 : ', data.review[index])
         for i in sim_reivew_idx:
             # print(f'유사리뷰 {i} : ', data.review[i[0]])
-            new_table.iloc[index]['similar_comment_' + str(cnt)] = data.review[i[0]]  # 유사 리뷰 저장
-            new_table.iloc[index]['similarity_' + str(cnt)] = i[1]  # 유사도 저장
+            new_table['similar_comment_' + str(cnt)].iloc[index] = data.review[i[0]]  # 유사 리뷰 저장
+            new_table['similarity_' + str(cnt)].iloc[index] = i[1]  # 유사도 저장
+            print(new_table.iloc[index]['similar_comment_' + str(cnt)])
+            print(new_table.iloc[index]['similarity_' + str(cnt)])
             cnt += 1
-
     return new_table
 
 
